@@ -49,6 +49,9 @@ pub use hdfs::Hdfs;
 mod http;
 pub use self::http::Http;
 
+mod icloud;
+pub use icloud::Icloud;
+
 #[cfg(feature = "services-ipfs")]
 mod ipfs;
 #[cfg(feature = "services-ipfs")]

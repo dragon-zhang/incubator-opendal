@@ -46,6 +46,8 @@ pub enum Scheme {
     Hdfs,
     /// [http][crate::services::Http]: HTTP backend.
     Http,
+    /// [icloud][crate::services::Icloud]: Apple iCloud Drive.
+    Icloud,
     /// [ftp][crate::services::Ftp]: FTP backend.
     #[cfg(feature = "services-ftp")]
     Ftp,
@@ -125,6 +127,7 @@ impl FromStr for Scheme {
             #[cfg(feature = "services-hdfs")]
             "hdfs" => Ok(Scheme::Hdfs),
             "http" | "https" => Ok(Scheme::Http),
+            "icloud" => Ok(Scheme::Icloud),
             #[cfg(feature = "services-ftp")]
             "ftp" | "ftps" => Ok(Scheme::Ftp),
             #[cfg(feature = "services-ipfs")]
@@ -164,6 +167,7 @@ impl From<Scheme> for &'static str {
             #[cfg(feature = "services-hdfs")]
             Scheme::Hdfs => "hdfs",
             Scheme::Http => "http",
+            Scheme::Icloud => "icloud",
             #[cfg(feature = "services-ftp")]
             Scheme::Ftp => "ftp",
             #[cfg(feature = "services-ipfs")]
